@@ -28,8 +28,16 @@ mongoose.connect(MONGO_URI)
   .then(() => {
     console.log('✅ MongoDB connected');
     seedAdmin();
-    app.listen(process.env.PORT || 5000, '0.0.0.0', () => {
+    app.listen(process.env.PORT || 5000, () => {
   console.log(`Server running on port ${process.env.PORT}`);
 });
   })
   .catch(err => console.error('❌ MongoDB connection error:', err));
+
+
+
+
+
+app.get("/", (req, res) => {
+  res.send("API WORKING");
+});
